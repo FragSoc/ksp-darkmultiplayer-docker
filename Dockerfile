@@ -1,0 +1,11 @@
+FROM mono:slim
+
+ENV INSTALL_LOC="/server"
+ENV CONFIG_LOC="/server/Config"
+
+COPY ./DMPServer $INSTALL_LOC
+
+VOLUME $CONFIG_LOC
+
+WORKDIR $INSTALL_LOC
+ENTRYPOINT ["mono", "DMPServer.exe"]
