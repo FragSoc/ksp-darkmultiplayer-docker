@@ -1,9 +1,10 @@
 FROM mono:slim
 
 ENV INSTALL_LOC="/server"
-ENV CONFIG_LOC="/server/Config"
+ENV CONFIG_LOC="/config"
 
 COPY ./DMPServer $INSTALL_LOC
+RUN ln -s $INSTALL_LOC/Config $CONFIG_LOC
 
 VOLUME $CONFIG_LOC
 
